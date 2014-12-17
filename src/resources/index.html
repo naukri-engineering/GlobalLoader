@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Global Loader</title>
+<link type="text/css" rel="stylesheet" href="../c/gLoader.css" />
+<style>
+	body{margin:0; padding:0; background:#F2FDFF}
+	#actions{z-index:9999; position:fixed; width:800px; margin:0 auto; top:0; background:#FFFFC6; font-size:12px}
+	.wrap{width:800px; margin:0 auto; position:relative}
+	.fl{float:left}.fr{float:right}.cl{display:table; content:""; line-height:0; clear:both}
+	.demoCont{width:390px; height:99px; border:1px solid #666; overflow:auto; line-height:normal; background:#F4F4F4}
+	.d1{width:100%;}
+	.d2{width:100%;height:399px; margin-top:20px}
+</style>
+</head>
+
+<body>
+    <div class="wrap">
+        <table width="100%" border="1" cellspacing="0" cellpadding="2" id="actions">
+          <tr>
+            <th align="center" valign="middle">Button 1</th>
+            <th align="center" valign="middle">Button 2</th>
+            <th align="center" valign="middle">Container 1</th>
+            <th align="center" valign="middle">Container 2</th>
+            <th align="center" valign="middle">Container 3</th>
+            <th align="center" valign="middle">Container 1, 2 & 3</th>
+            <th align="center" valign="middle">Container 4</th>
+            <th align="center" valign="middle">Body</th>
+          </tr>
+          <tr id="trigrs">
+          	<td align="center" valign="middle"><a href="javascript:" onclick="$('#btn1').gLoader().block()">Show</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:" onclick="$('#btn1').gLoader().unblock()">Hide</a></td>
+            <td align="center" valign="middle"><a href="javascript:" onclick="$('#btn2').gLoader().block()">Show</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:" onclick="$('#btn2').gLoader().unblock()">Hide</a></td>
+            <td align="center" valign="middle"><a href="javascript:" onclick="$('#cont1').gLoader().block()">Show</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:" onclick="$('#cont1').gLoader().unblock()">Hide</a></td>
+            <td align="center" valign="middle"><a href="javascript:" onclick="$('#cont2').gLoader().block()">Show</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:" onclick="$('#cont2').gLoader().unblock()">Hide</a></td>
+            <td align="center" valign="middle"><a href="javascript:" onclick="$('#cont3').gLoader().block()">Show</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:" onclick="$('#cont3').gLoader().unblock()">Hide</a></td>
+            <td align="center" valign="middle"><a href="javascript:" onclick="$('.demoCont').gLoader().block()">Show</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:" onclick="$('.demoCont').gLoader().unblock()">Hide</a></td>
+            <td align="center" valign="middle"><a href="javascript:" onclick="$('#cont4').gLoader().block()">Show</a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="rsz" href="javascript:">Resize</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:" onclick="$('#cont4').gLoader().unblock()">Hide</a></td>
+            <td align="center" valign="middle"><a href="javascript:" onclick="$('body').gLoader().block()">Show</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:" onclick="$('body').gLoader().unblock()">Hide</a></td>
+          </tr>
+        </table>
+        <div style="height:100px"></div>
+        <div class="d1 cl">
+            <button id="btn1" type="button" style="height:30px; width:200px; margin:0 0 0 40px">Button 1</button>
+            <button id="btn2" type="button" style="height:50px; width:200px; margin:0 0 0 40px">Button 2</button>
+            <button id="btn3" type="button" style="height:50px; width:200px; margin:0 0 0 40px" onclick="$(this).gLoader().block();setTimeout(function(){$('#btn3').gLoader().unblock()},1500)">Click Here</button>
+        </div>
+        <div style="height:20px"></div>
+        <div class="d1 cl">
+       		<div id="cont1" class="demoCont fl">Container 1<br />1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br /></div>
+        	<div id="cont2" class="demoCont fr" style="background:url(http://img.naukimg.com/s/1/23/i/slide7_v1.jpg) right -8px;">Container 2</div>
+        </div>
+        <div id="cont3" class="demoCont d2">Container 3<br />1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20<br />21<br />22<br />23<br />24<br />25<br /></div>
+    </div>
+    <div id="cont4" style="background:#E1F0FF; border:1px solid #000; width:30%; height:500px; margin:20px auto">Container 4 (Fluid)</div>
+    
+<script type="text/javascript" src="../j/jquery.js"></script>
+<script type="text/javascript" src="../j/gLoader.js"></script>
+<script>
+$('#rsz').on('click',function(){
+	$(this).html('Resize again')
+	if($('#cont4').height()=="500"){
+		$('#cont4').animate({"width":"55%","height":"200px"},400,function(){$('#cont4').gLoader().resize()});
+	}
+	else{
+		$('#cont4').animate({"width":"30%","height":"500px"},400,function(){$('#cont4').gLoader().resize()});
+	}
+});
+</script>
+</body>
+</html>

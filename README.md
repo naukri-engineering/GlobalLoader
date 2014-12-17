@@ -1,7 +1,7 @@
 # Global Loader
 
 A simple JQuery based plugin to show/hide loader image and disable/enable user interaction or a specific section while performing operations like Intensive DOM manipulation, Ajax calls etc.
-
+[View Demo](http://naukri-engineering.github.io/GlobalLoader/)
 
 ### Usage:
 `$('#selector').gLoader().block();`
